@@ -7,6 +7,8 @@ import "../styles/Card.css";
 const LostPage = () => {
   const [lostState, setLostState] = useState(false);
   const updateItem = () => {
+
+    
   };
   const page = "LOST";
 
