@@ -7,7 +7,7 @@ import ListItem from "../Components/ListItem";
 const FoundPage = () => {
   const [foundState, setFoundState] = useState(false);
   const updateItem = () => {
-
+    setFoundState(!foundState);
   };
   const page = "FOUND";
 

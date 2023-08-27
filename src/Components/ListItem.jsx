@@ -7,15 +7,28 @@ const ListItems = (props) => {
   const [items, setItems] = useState([]);
   const [spinner, setSpinner] = useState();
   const lostFoundFetch=async()=>{
-
+    try{
+      setSpinner(true);
+      const response =await axios.get(`https://finding-nemo.onrender.com/lostItem/getByCategory?category=${props.section}`);
+      console.log(response);
+      setItems(response.data.reverse());
+      setSpinner(false);
+    }catch(error){
+      console.log("Error in fetching data");
+      setSpinner(false);
+    }
   }
   useEffect(() => {
-
+    lostFoundFetch();
   }, []);
   return (
     <div className="container">
       {spinner && <InfinitySpin width="200" color="#019aff" />}
-      
+      {items.map((item) => (
+        <div key={item._id}>
+          <Item key={item._id} data={item} />
+        </div>
+      ))}
     </div>
   );
 };
