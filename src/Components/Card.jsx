@@ -26,15 +26,53 @@ const Card = (props) => {
     });
   
     const handleImage = async (event) => {
-
+      const file = event.target.files[0];
+      if (file) {
+        const base64 = await convertToBase64(file);
+        setFormFields((prevFields) => ({
+          ...prevFields,
+          image: base64,
+        }));
+      } else
+        setFormFields((prevFields) => ({
+          ...prevFields,
+          image: upload,
+        }));
     };
   
     const handleFieldChange = (event) => {
-
+      const { name, value } = event.target;
+      setFormFields((prevFields) => ({
+        ...prevFields,
+        [name]: value,
+      }));
     };
   
     const handleFormSubmit = async (event) => {
+      event.preventDefault();
 
+    if (!formFields.image) {
+      alert("Invalid Image");
+      return;
+    }
+
+    setSpinner(true);
+    console.log(formFields);
+    try {
+      await axios.post(
+        "https://finding-nemo.onrender.com/lostItem/addLostItem",
+        formFields
+      );
+      setSubmitTxt("Submitted");
+      setTimeout(() => {
+        setSubmitTxt("Submit");
+        window.location.href = formFields.category;
+      }, 1500);
+    } catch (error) {
+      console.error("Error:", error);
+      setSubmitTxt("Retry");
+    }
+    setSpinner(false);
     };
   
     return (
