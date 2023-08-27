@@ -8,10 +8,14 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 
 const HomeCard = () => {
   const handleKeyPress = (event) => {
+    if (event.key === "Enter") window.location.href = "/lost";
   };
 
   useEffect(() => {
-
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
   }, []);
 
   return (
