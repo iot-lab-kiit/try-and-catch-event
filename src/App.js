@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   return (
     <div className="screen">
-      
+      <div>Hello world</div>
     </div>
   );
 }
