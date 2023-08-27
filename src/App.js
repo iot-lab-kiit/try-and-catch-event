@@ -8,7 +8,13 @@ import "./App.css";
 function App() {
   return (
     <div className="screen">
-      <div>Hello world</div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage/>}></Route>
+          <Route path="lost" element={<LostPage />} />
+          <Route path="found" element={<FoundPage />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
