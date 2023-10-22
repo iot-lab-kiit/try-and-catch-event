@@ -73,39 +73,81 @@
 .homeContainer_right > img {
   margin-left: 20px;
 }
-
 .div-button {
   background: linear-gradient(90.04deg, #019aff, rgb(21, 3, 65) 99.96%);
-  padding: 7px 30px 7px 30px;
-  padding: 01% 5%;
+  padding: 5px 25px; 
   border-radius: 10px;
   color: white;
   font-weight: bold;
-  border: transparent;
-  width: 32%;
+  border: none;
+  width: 220px; 
   word-wrap: break-word;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   align-items: center;
   min-width: 150px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; 
+  text-overflow: ellipsis; /* Apply ellipsis to div-button */
 }
 
-.button {
-  border: none;
+button {
+  border-radius: 4px;
   background: transparent;
-  color: white;
-  font-weight: bold;
-  position: relative;
-  bottom: 5px;
-  font-size: 89%;
-  text-align: left;
+  border: none;
+  color: #fff;
+  font-size: 28px; 
+  padding: 12px; 
+  width: 280px; 
+  transition: all 0.5s;
   cursor: pointer;
+  margin: 0;
+  box-shadow: none;
+  text-align: center;
+  overflow: hidden;
+  position: relative; 
 }
 
-.arrow {
-  position: relative;
-  top: 7px;
+@media (max-width: 500px) {
+  .div-button {
+    width: 100%; 
+  }
+
+  button {
+    width: 100%; 
+    font-size: 18px; 
+  }
 }
+
+
+button {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 50%; 
+  right: 0; 
+  transform: translateY(-50%); 
+  transition: 0.5s;
+}
+
+button:hover {
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+button:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
 
 @media only screen and (max-width: 850px) {
   .homeContainer {

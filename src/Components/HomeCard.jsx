@@ -30,7 +30,7 @@ const HomeCard = () => {
           <Link to="/lost" style={{ textDecoration: "none" }}>
             <button className="button">
               Let's Get Started
-              <KeyboardDoubleArrowRightIcon className="arrow" />
+              {/* <KeyboardDoubleArrowRightIcon className="arrow" /> */}
             </button>
           </Link>
         </div>
